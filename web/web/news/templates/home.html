@@ -1,0 +1,106 @@
+{% extends 'index.html' %}
+{% block body %}
+{% if news %}
+  {% for item in news %}
+<div class="news">
+  <a href="{% url 'news:detail' item.id %}"><h3>{{ item.title }}</h3></a>
+      <img src="{{ item.thumbnail.url }}" class="img-responsive  pull-left " style="max-height:100px; padding-right:10px " />
+  <p>{{ item.intro|safe }}</p>
+  <a href="{% url 'news:detail' item.id %}" class="btn btn-danger">Đọc thêm</a>
+  <div class="clearfix"></div>
+</div>
+
+{% endfor %}
+{% endif %}
+<div class="pagination">
+
+      <span class="step-links">
+        {% if news.has_previous %}
+      <a href="?page={{ news.previous_page_number }}">Previous</a>
+        {% endif %}
+      </span>
+
+    <span class="current">
+        Page {{ news.number }} of {{ news.paginator.num_pages }}.
+    </span>
+
+    <span>
+        {% if news.has_next %}
+            <a href="?page={{ news.next_page_number }}">Next</a>
+        {% endif %}
+    </span>
+</div>
+
+<section id="work">
+  <div class="content-box">
+    <div class="content-title wow animated fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
+      <h3>  Our Work </h3>
+      <div class="content-title-underline"></div>
+  </div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row no-gutters wow animated fadeInDown" data-wow-duration="1s" data-wow-delay=".5s">
+      <div class="col-md-3">
+        <div class="img-wrapper">
+          <a href="static/img/work/1.jpg" title="Work description">
+            <img src="static/img/work/1.jpg" class="img-responsive" alt="work">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="img-wrapper">
+          <a href="static/img/work/2.jpg" title="Work description">
+            <img src="static/img/work/2.jpg" class="img-responsive" alt="work">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="img-wrapper">
+          <a href="static/img/work/3.jpg" title="Work description">
+            <img src="static/img/work/3.jpg" class="img-responsive" alt="work">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="img-wrapper">
+          <a href="static/img/work/4.jpg" title="Work description">
+            <img src="static/img/work/4.jpg" class="img-responsive" alt="work">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="img-wrapper">
+          <a href="static/img/work/5.jpg" title="Work description">
+            <img src="static/img/work/5.jpg" class="img-responsive" alt="work">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="img-wrapper">
+          <a href="static/img/work/6.jpg" title="Work description">
+            <img src="static/img/work/6.jpg" class="img-responsive" alt="work">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="img-wrapper">
+          <a href="static/img/work/7.jpg" title="Work description">
+            <img src="static/img/work/7.jpg" class="img-responsive" alt="work">
+          </a>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="img-wrapper">
+          <a href="static/img/work/8.jpg" title="Work description">
+            <img src="static/img/work/8.jpg" class="img-responsive" alt="work">
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends 'index.html' %}
+{% block body %}
+<h1 style="margin-bottom:10px;font-size:20px">Chuyên mục : <b style="color:red">{{ cate_item}}</b></h1>
+{% if news %}
+  {% for item in news %}
+	<div class="news">
+		<h1>{{ item.title }}</h1>
+		<img src=" {{ item.thumbnail.url }}" class="thumbs" />
+		<p>{{ item.intro}} </p>
+		<a href=" {% url 'news:detail' item.id %} " class="readmore">Đọc thêm</a>
+		<div class="clearfix"></div>
+	</div>
+	{% endfor %}
+{% endif %}
+
+{% endblock %}

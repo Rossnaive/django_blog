@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{%  block body %}
+
+<div id="main">
+    <div class="news">
+        <h1>{{ detail.title }}</h1>
+        <img src=" {{detail.thumbnail.url}}" class="thumbs" />
+        <p>
+            <i><b>Danh mục</b>: <a href="">{{ detail.category}}</a><br />
+            <b>Viết bởi</b>:{{ detail.author}}<br />
+            <b>Ngày viết</b>: {{detail.created}}</i>
+        </p>
+        <p>
+            {{ detail.intro|safe}}
+        </p>
+        <p>
+            {{detail.content|safe}}
+        </p>
+    </div>
+
+{% endblock %}
